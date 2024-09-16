@@ -1,12 +1,18 @@
 "use client"
 
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 const SearchInput = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   const onSearch = (e) => {
     e.preventDefault();
+
+    const encodedSearchQuery = encodeURI(searchQuery);
+    router.push(`/search?q=${encodedSearchQuery}`);
+
 
     
   }
