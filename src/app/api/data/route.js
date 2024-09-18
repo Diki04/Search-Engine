@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function GET(req, res) {
-  console.log("masukkk ", req)
-  return NextResponse.json({message: "ridwan"});
+  if(req.method === "GET"){
+    try {
+      const {q} = req.query;
+
+      // Search posts
+      
+      return NextResponse.json({posts: []},{status: 200});
+      
+    } catch (error) {
+      
+    }
+  }
  }
  
